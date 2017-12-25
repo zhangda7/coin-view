@@ -45,13 +45,15 @@
     "rimraf": "^2.5.2",
     "signcode": "^0.5.0",
     "spectron": "~3.6.0",
-    "standard": "^8.2.0"
+    "standard": "^8.2.0",
+    "react": "^0.14.8"
   },
   "dependencies": {
     "electron-settings": "^3.0.7",
     "electron-shortcut-normalizer": "^1.0.0",
     "glob": "^7.1.0",
-    "highlight.js": "^9.3.0"
+    "highlight.js": "^9.3.0",
+    "react": "^0.14.8"
   },
   "standard": {
     "env": {
