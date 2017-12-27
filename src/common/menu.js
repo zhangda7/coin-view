@@ -3,6 +3,9 @@ const menuData = [{
   icon: 'dashboard',
   path: 'dashboard',
   children: [{
+    name: '实时行情',
+    path: 'rtinfo',
+  },{
     name: '分析页',
     path: 'analysis',
   }, {
