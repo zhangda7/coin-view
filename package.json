@@ -1,74 +1,125 @@
 {
-  "name": "ElectronAPIDemos",
-  "productName": "Electron API Demos",
-  "version": "1.3.0",
-  "description": "Electron interactive API demos",
+  "name": "ant-design-pro",
+  "version": "0.3.1",
+  "description": "An out-of-box UI solution for enterprise applications",
   "private": true,
   "main": "main.js",
+  "homepage": "E:\\Projects\\js\\ant-design-pro",
   "scripts": {
-    "start": "electron .",
-    "dev": "electron . --debug",
-    "watch": "watchify app/appEntry.js -t babelify -o public/js/bundle.js --debug --verbose",
-    "test": "mocha && standard",
-    "package": "npm-run-all package:*",
-    "package:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=out --icon=assets/app-icon/mac/app.icns --osx-sign.identity='Developer ID Application: GitHub' --extend-info=assets/mac/info.plist",
-    "package:win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out --icon=assets/app-icon/win/app.ico",
-    "package:linux": "electron-packager . --overwrite --platform=linux --arch=x64 --out=out",
-    "package:sign-exe": "signcode './out/Electron API Demos-win32-ia32/Electron API Demos.exe' --cert ~/electron-api-demos.p12 --prompt --name 'Electron API Demos' --url 'http://electron.atom.io'",
-    "package:installer": "node ./script/installer.js",
-    "package:sign-installer": "signcode './out/windows-installer/ElectronAPIDemosSetup.exe' --cert ~/electron-api-demos.p12 --prompt --name 'Electron API Demos' --url 'http://electron.atom.io'",
-    "package:mas": "./script/mas.sh",
-    "windows-store": "node ./script/windows-store.js",
-    "release": "node ./script/release.js",
-    "prepack": "check-for-leaks",
-    "prepush": "check-for-leaks"
-  },
-  "repository": "https://github.com/electron/electron-api-demos",
-  "keywords": [
-    "Electron",
-    "API",
-    "demo"
-  ],
-  "author": "GitHub",
-  "license": "MIT",
-  "devDependencies": {
-    "babel": "^6.5.2",
-    "babel-plugin-transform-es2015-spread": "^6.8.0",
-    "babel-plugin-transform-object-rest-spread": "^6.8.0",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.5.0",
-    "babelify": "^7.3.0",
-    "chai": "^3.4.1",
-    "chai-as-promised": "^6.0.0",
-    "check-for-leaks": "^1.2.0",
-    "devtron": "^1.3.0",
-    "electron": "~1.6.2",
-    "electron-packager": "^8.6.0",
-    "electron-winstaller": "^2.2.0",
-    "husky": "^0.14.3",
-    "mocha": "^3.1.0",
-    "npm-run-all": "^4.0.2",
-    "request": "^2.70.0",
-    "rimraf": "^2.5.2",
-    "signcode": "^0.5.0",
-    "spectron": "~3.6.0",
-    "standard": "^8.2.0",
-    "react": "^0.14.8"
+    "electron-start": "electron . --debug",
+    // "precommit": "npm run lint-staged",
+    "start": "set PORT=8080 && roadhog server ",
+    "start:no-proxy": "cross-env NO_PROXY=true roadhog server",
+    "build": "roadhog build",
+    "site": "roadhog-api-doc static && gh-pages -d dist",
+    "analyze": "roadhog build --analyze",
+    "lint:style": "stylelint \"src/**/*.less\" --syntax less",
+    "lint": "eslint --ext .js src mock tests && npm run lint:style",
+    "lint:fix": "eslint --fix --ext .js src mock tests && npm run lint:style",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --ext .js",
+    "test": "jest",
+    "test:all": "node ./tests/run-tests.js"
   },
   "dependencies": {
-    "material-ui": "^0.15.0",
-    "react": "^15.1.0",
-    "react-color": "2.1.0",
-    "react-dom": "^15.1.0",
-    "react-tap-event-plugin": "^1.0.0",
-    "electron-settings": "^3.0.7",
-    "electron-shortcut-normalizer": "^1.0.0",
-    "glob": "^7.1.0",
-    "highlight.js": "^9.3.0"
+    "antd": "^3.0.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.9.2",
+    "classnames": "^2.2.5",
+    "core-js": "^2.5.1",
+    "dva": "^2.1.0",
+    "enquire-js": "^0.1.1",
+    "g-cloud": "^1.0.2-beta",
+    "g2": "^2.3.13",
+    "g2-plugin-slider": "^1.2.1",
+    "lodash": "^4.17.4",
+    "lodash-decorators": "^4.4.1",
+    "lodash.clonedeep": "^4.5.0",
+    "moment": "^2.19.1",
+    "numeral": "^2.0.6",
+    "prop-types": "^15.5.10",
+    "qs": "^6.5.0",
+    "rc-drawer-menu": "^0.5.0",
+    "react": "^16.0.0",
+    "react-container-query": "^0.9.1",
+    "react-document-title": "^2.0.3",
+    "react-dom": "^16.0.0",
+    "react-fittext": "^1.0.0"
   },
-  "standard": {
-    "env": {
-      "mocha": true
+  "devDependencies": {
+    "devtron": "^1.3.0",
+    "babel-eslint": "^8.0.1",
+    "babel-jest": "^21.0.0",
+    "babel-plugin-dva-hmr": "^0.3.2",
+    "babel-plugin-import": "^1.2.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.1.1",
+    "cross-port-killer": "^1.0.1",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.2",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-plugin-babel": "^4.0.0",
+    "eslint-plugin-compat": "^2.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^6.0.0",
+    "eslint-plugin-markdown": "^1.0.0-beta.6",
+    "eslint-plugin-react": "^7.0.1",
+    "gh-pages": "^1.0.0",
+    "husky": "^0.14.3",
+    "jest": "^21.0.1",
+    "lint-staged": "^4.3.0",
+    "mockjs": "^1.0.1-beta3",
+    "prettier": "^1.9.0",
+    "pro-download": "^1.0.0",
+    "react-test-renderer": "^16.0.0",
+    "redbox-react": "^1.3.2",
+    "roadhog": "^1.3.1",
+    "roadhog-api-doc": "^0.3.3",
+    "rollbar": "^2.3.1",
+    "stylelint": "^8.1.0",
+    "stylelint-config-standard": "^17.0.0"
+  },
+  "optionalDependencies": {
+    "nightmare": "^2.10.0"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ],
+    "plugins": [
+      "transform-decorators-legacy",
+      "transform-class-properties"
+    ]
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/tests/setupTests.js"
+    ],
+    "testMatch": [
+      "**/?(*.)(spec|test|e2e).js?(x)"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/tests/jasmine.js",
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/tests/styleMock.js"
     }
-  }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": "lint-staged:js",
+    "**/*.less": "stylelint --syntax less"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ]
 }
