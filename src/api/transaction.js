@@ -10,7 +10,14 @@ export function fetchList(query) {
 
 export function fetchRtinfo() {
   return request({
-    url: 'http://localhost:8081/listingBuyInfo',
+    url: 'http://localhost:8081/listingOkexInfo',
+    method: 'get',
+  })
+}
+
+export function fetchHuobiRtinfo() {
+  return request({
+    url: 'http://localhost:8081/listingHuobiInfo',
     method: 'get',
   })
 }

@@ -28,6 +28,7 @@
 <script>
 import { fetchList } from '@/api/transaction'
 import { fetchRtinfo } from '@/api/transaction'
+import { fetchHuobiRtinfo } from '@/api/transaction'
 
 export default {
   data() {
@@ -54,9 +55,9 @@ export default {
   },
   methods: {
     fetchData() {
-      fetchRtinfo().then(response => {
+      fetchHuobiRtinfo().then(response => {
         console.log('response:' + response.data.data)
-        var allDepth = JSON.parse(response.data.data)["OKEX_COIN_COIN_ETH_BTC_"]
+        var allDepth = JSON.parse(response.data.data)["HUOBI_COIN_COIN_BTC_ETH_"]
         console.log('allDepth:' + allDepth)
         this.list = allDepth;
         this.lastUpdateDate = new Date();
