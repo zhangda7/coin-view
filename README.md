@@ -1,93 +1,152 @@
+<p align="center">
+  <img width="320" src="https://wpimg.wallstcn.com/ecc53a42-d79b-42e2-8852-5126b810a4c8.svg">
+</p>
+
+<p align="center">
+	<a href="https://github.com/vuejs/vue">
+		<img src="https://img.shields.io/badge/vue-2.5.10-brightgreen.svg" alt="vue">
+	</a>
+	<a href="https://github.com/ElemeFE/element">
+		<img src="https://img.shields.io/badge/element--ui-2.0.8-brightgreen.svg" alt="element-ui">
+	</a>
+	<a href="https://travis-ci.org/PanJiaChen/vue-element-admin" rel="nofollow">
+		<img src="https://travis-ci.org/PanJiaChen/vue-element-admin.svg?branch=master" alt="Build Status">
+	</a>
+	<a href="https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE">
+		<img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
+	</a>
+	<a href="https://github.com/PanJiaChen/vue-element-admin/releases">
+		<img src="https://img.shields.io/github/release/PanJiaChen/vue-element-admin.svg" alt="GitHub release">
+	</a>
+</p>
+
 English | [简体中文](./README.zh-CN.md)
 
-# Ant Design Pro
+## Introduction
 
-[![](https://img.shields.io/travis/ant-design/ant-design-pro.svg?style=flat-square)](https://travis-ci.org/ant-design/ant-design-pro) [![Build status](https://ci.appveyor.com/api/projects/status/67fxu2by3ibvqtat/branch/master?svg=true)](https://ci.appveyor.com/project/afc163/ant-design-pro/branch/master)  [![Gitter](https://badges.gitter.im/ant-design/ant-design-pro.svg)](https://gitter.im/ant-design/ant-design-pro?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+`vue-element-admin` is a production-ready solution for admin interfaces. Based on [Vue.js](https://github.com/vuejs/vue) and use the UI Toolkit -- [element](https://github.com/ElemeFE/element). `vue-element-admin` is a magical vue admin, it based on the newest development stack of vue, built-in i18n solution, typical templates for enterprise applications, lots of awesome features. It helps you build a large complex Single-Page Applications. I believe whatever your needs are, this project will help you.
 
-An out-of-box UI solution for enterprise applications as a React boilerplate.
+- [Preview](http://panjiachen.github.io/vue-element-admin)
 
-![](https://gw.alipayobjects.com/zos/rmsportal/xEdBqwSzvoSapmnSnYjU.png)
+- [Documentation](https://panjiachen.github.io/vue-element-admin-site/#/)
 
-- Preview: http://preview.pro.ant.design
-- Home Page: http://pro.ant.design
-- Documentation: http://pro.ant.design/docs/getting-started
-- FAQ: http://pro.ant.design/docs/faq
+- [wiki](https://github.com/PanJiaChen/vue-element-admin/wiki)
 
-## Translation Recruitment :loudspeaker:
+- [donate](https://panjiachen.github.io/vue-element-admin-site/#/donate)
 
-We need your help: https://github.com/ant-design/ant-design-pro/issues/120
+**vue-element-admin is a admin interfaces integration solution, which is not suitable for secondary development as a base template.**
+
+ - Base template recommends using: [vueAdmin-template](https://github.com/PanJiaChen/vueAdmin-template)  
+ - Desktop: [electron-vue-admin](https://github.com/PanJiaChen/electron-vue-admin)
+
+**Note: This project uses element-ui@2.0.0+ version, so the minimum compatible vue@2.5.0**
+
+## Preparation
+
+You need to install [node](http://nodejs.org/) and [git](https://git-scm.com/) locally. The project is based on [ES2015+](http://es6.ruanyifeng.com/)、[vue](https://cn.vuejs.org/index.html)、[vuex](https://vuex.vuejs.org/zh-cn/)、[vue-router](https://router.vuejs.org/zh-cn/) 和 [element-ui](https://github.com/ElemeFE/element). All data requests for this project are simulated using [Mock.js](https://github.com/nuysoft/Mock). It would be helpful if you have pre-existing knowledge on those.
+
+ **This project is not a scaffolding and is more of an integrated solution.**
+
+ **This project does not support low version browsers (e.g. IE). Please add polyfill yourself if you need them.**
+
+ <p align="center">
+  <img width="900" src="https://wpimg.wallstcn.com/a5894c1b-f6af-456e-82df-1151da0839bf.png">
+</p>
 
 ## Features
-
-- :gem: **Neat Design**: Follow [Ant Design specification](http://ant.design/)
-- :triangular_ruler: **Common Templates**: Typical templates for enterprise applications
-- :rocket: **State of The Art Development**: Newest development stack of React/dva/antd
-- :iphone: **Responsive**: Designed for varies of screen size
-- :art: **Themeing**: Customizable theme with simple config
-- :globe_with_meridians: **International**: Built-in i18n solution
-- :gear: **Best Practice**: Solid workflow make your code health
-- :1234: **Mock development**: Easy to use mock development solution
-- :white_check_mark: **UI Test**: Fly safely with unit test and e2e test
-
-## Templates
-
 ```
+- Login / Logout
+- Permission authentication
+- Multi-environment build
+- Dynamic sidebar (supports multi-level routing)
+- Dynamic breadcrumb
+- I18n
+- Customizable theme
+- Tags-view(Tab page Support right-click operation)
+- Rich text editor
+- Markdown editor
+- JSON editor
+- Screenfull
+- Drag and drop list
+- Svg Sprite
 - Dashboard
-  - Analytic
-  - Monitor
-  - Workspace
-- Form
-  - Basic Form
-  - Step Form
-  - Advanced From
-- List
-  - Standard Table
-  - Standard List
-  - Card List
-  - Search List (Project/Applications/Article)
-- Profile
-  - Simple Profile
-  - Advanced Profile
-- Result
-  - Success
-  - Failed
-- Exception
-  - 403
-  - 404
-  - 500
-- User
-  - Login
-  - Register
-  - Register Result
+- Mock data
+- Echarts
+- Clipboard
+- 401/404 error page
+- Error log
+- Export excel
+- Export zip
+- Front-end visualization excel
+- Table example
+- Dynamictable example
+- Drag and drop table example
+- Inline edit table example
+- Form example
+- Two-step login
+- SplitPane
+- Dropzone
+- Sticky
+- CountTo
+- Markdown to html
 ```
 
-## Usage
+## Getting started
 
 ```bash
-$ git clone https://github.com/ant-design/ant-design-pro.git --depth=1
-$ cd ant-design-pro
-$ npm install
-$ npm start         # visit http://localhost:8000
+# clone the projice
+git clone https://github.com/PanJiaChen/vue-element-admin.git
+
+# install dependency
+npm install
+
+# develop
+npm run dev
 ```
 
-Or you can use the command tool: [ant-design-pro-cli](https://github.com/ant-design/ant-design-pro-cli)
+This will automatically open http://localhost:9527.
 
+## Build
 ```bash
-$ npm install ant-design-pro-cli -g
-$ mkdir pro-demo && cd pro-demo
-$ pro new
+# build for test environment
+npm run build:sit
+
+# build for production environment
+npm run build:prod
 ```
 
-More instruction at [documentation](http://pro.ant.design/docs/getting-started)。
+## Advanced
+```bash
+# --report to build with bundle size analytics
+npm run build:prod --report
 
-## Compatibility
+# --preview to start a server in local to preview
+npm run build:prod --preview
 
-Modern browsers and IE11.
+# lint code
+npm run lint
 
-## Contributing
+# auto fix
+npm run lint -- --fix
+```
 
-Any Contribution of following ways will be welcome:
+Refer to [Documentation](https://panjiachen.github.io/vue-element-admin-site/#/deploy) for more information
 
-- Use Ant Design Pro in your daily work.
-- Submit [issue](http://github.com/ant-design/ant-design-pro/issues) to report bug or ask questions.
-- Propose [pull request](http://github.com/ant-design/ant-design-pro/pulls) to improve our code.
+## Changelog
+Detailed changes for each release are documented in the [release notes](https://github.com/PanJiaChen/vue-element-admin/releases).
+
+## Online Demo
+[Preview](http://panjiachen.github.io/vue-element-admin)
+
+## Donate
+If you find this project useful, you can buy author a glass of juice :tropical_drink:
+
+![donate](https://wpimg.wallstcn.com/bd273f0d-83a0-4ef2-92e1-9ac8ed3746b9.png)
+
+[Paypal Me](https://www.paypal.me/panfree23)
+
+## License
+
+[MIT](https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE)
+
+Copyright (c) 2017-present PanJiaChen

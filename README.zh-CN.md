@@ -1,89 +1,165 @@
-[English](./README.md) | 简体中文
+<p align="center">
+  <img width="320" src="https://wpimg.wallstcn.com/ecc53a42-d79b-42e2-8852-5126b810a4c8.svg">
+</p>
 
-# Ant Design Pro
+<p align="center">
+	<a href="https://github.com/vuejs/vue">
+		<img src="https://img.shields.io/badge/vue-2.5.10-brightgreen.svg" alt="vue">
+	</a>
+	<a href="https://github.com/ElemeFE/element">
+		<img src="https://img.shields.io/badge/element--ui-2.0.8-brightgreen.svg" alt="element-ui">
+	</a>
+	<a href="https://travis-ci.org/PanJiaChen/vue-element-admin" rel="nofollow">
+		<img src="https://travis-ci.org/PanJiaChen/vue-element-admin.svg?branch=master" alt="Build Status">
+	</a>
+	<a href="https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE">
+		<img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
+	</a>
+	<a href="https://github.com/PanJiaChen/vue-element-admin/releases">
+		<img src="https://img.shields.io/github/release/PanJiaChen/vue-element-admin.svg" alt="GitHub release">
+	</a>
+</p>
 
-[![](https://img.shields.io/travis/ant-design/ant-design-pro.svg?style=flat-square)](https://travis-ci.org/ant-design/ant-design-pro) [![Build status](https://ci.appveyor.com/api/projects/status/67fxu2by3ibvqtat/branch/master?svg=true)](https://ci.appveyor.com/project/afc163/ant-design-pro/branch/master)  [![Gitter](https://badges.gitter.im/ant-design/ant-design-pro.svg)](https://gitter.im/ant-design/ant-design-pro?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+简体中文 | [English](./README.md)
 
-开箱即用的中台前端/设计解决方案。
+## 简介
 
-![](https://gw.alipayobjects.com/zos/rmsportal/xEdBqwSzvoSapmnSnYjU.png)
+`vue-element-admin` 是一个后台集成解决方案，它基于 [Vue.js](https://github.com/vuejs/vue) 和 [element](https://github.com/ElemeFE/element)。它使用了最新的前端技术栈，内置了i18国际化解决方案，动态路由，权限验证等很多功能特性，相信不管你的需求是什么，本项目都能帮助到你。
 
-- 预览：http://preview.pro.ant.design
-- 首页：http://pro.ant.design
-- 使用文档：http://pro.ant.design/docs/getting-started
-- 常见问题：http://pro.ant.design/docs/faq
+- [在线访问](http://panjiachen.github.io/vue-element-admin)
 
-## 特性
+- [使用文档](https://panjiachen.github.io/vue-element-admin-site/#/)
 
-- :gem: **优雅美观**：基于 Ant Design 体系精心设计
-- :triangular_ruler: **常见设计模式**：提炼自中后台应用的典型页面和场景
-- :rocket: **最新技术栈**：使用 React/dva/antd 等前端前沿技术开发
-- :iphone: **响应式**：针对不同屏幕大小设计
-- :art: **主题**：可配置的主题满足多样化的品牌诉求
-- :globe_with_meridians: **国际化**：内建业界通用的国际化方案
-- :gear: **最佳实践**：良好的工程实践助您持续产出高质量代码
-- :1234: **Mock 数据**：实用的本地数据调试方案
-- :white_check_mark: **UI 测试**：自动化测试保障前端产品质量
+- [wiki](https://github.com/PanJiaChen/vue-element-admin/wiki)
 
-## 模板
+- [donate](https://panjiachen.github.io/vue-element-admin-site/#/donate)
 
+**本项目的定位是后台集成方案，不适合当基础模板来开发。**
+ - 模板建议使用: [vueAdmin-template](https://github.com/PanJiaChen/vueAdmin-template)  
+ - 桌面端: [electron-vue-admin](https://github.com/PanJiaChen/electron-vue-admin)
+
+**注意：该项目使用 element-ui@2.0.0+ 版本，所以最低兼容 vue@2.5.0**
+
+## 前序准备
+
+你的本地环境需要安装 [node](http://nodejs.org/) 和 [git](https://git-scm.com/)。我们的技术栈基于 [ES2015+](http://es6.ruanyifeng.com/)、[vue](https://cn.vuejs.org/index.html)、[vuex](https://vuex.vuejs.org/zh-cn/)、[vue-router](https://router.vuejs.org/zh-cn/) and [element-ui](https://github.com/ElemeFE/element)，所有的请求数据都使用[Mock.js](https://github.com/nuysoft/Mock)模拟，提前了解和学习这些知识会对使用本项目有很大的帮助。
+
+同时配套一个系列的教程文章，如何从零构建后一个完整的后台项目，建议大家先看完这些文章再来实践本项目
+ - [手摸手，带你用 vue 撸后台 系列一(基础篇)](https://juejin.im/post/59097cd7a22b9d0065fb61d2)
+ - [手摸手，带你用 vue 撸后台 系列二(登录权限篇)](https://juejin.im/post/591aa14f570c35006961acac)
+ - [手摸手，带你用 vue 撸后台 系列三 (实战篇)](https://juejin.im/post/593121aa0ce4630057f70d35)
+ - [手摸手，带你用 vue 撸后台 系列四(vueAdmin 一个极简的后台基础模板)](https://juejin.im/post/595b4d776fb9a06bbe7dba56)
+ - [手摸手，带你封装一个 vue component](https://segmentfault.com/a/1190000009090836)
+ - [手摸手，带你优雅的使用 icon](https://juejin.im/post/59bb864b5188257e7a427c09)
+
+ 响应需求，开了一个qq群 `591724180` 方便大家交流
+
+ 或者加入该群主 **[圈子](https://jianshiapp.com/circles/1209)** 楼主会经常分享一些技术相关的东西
+
+ **如有问题请先看上述使用文档和文章，若不能满足，欢迎 issue 和 pr**
+
+ **本项目并不是一个脚手架，更倾向于是一个集成解决方案**
+
+ **该项目不支持低版本浏览器(如ie)，有需求请自行添加polyfill [详情](https://github.com/PanJiaChen/vue-element-admin/wiki#babel-polyfill)**
+
+ <p align="center">
+  <img width="900" src="https://wpimg.wallstcn.com/a5894c1b-f6af-456e-82df-1151da0839bf.png">
+</p>
+
+## 功能
 ```
+- 登录/注销
+- 权限验证
+- 多环境发布
+- 动态侧边栏（支持多级路由）
+- 动态面包屑
+- 国际化多语言
+- 多种动态换肤
+- 快捷导航(标签页)
+- 富文本编辑器
+- Markdown编辑器
+- JSON编辑器
+- Screenfull全屏
+- 列表拖拽
+- Svg Sprite 图标
 - Dashboard
-  - 分析页
-  - 监控页
-  - 工作台
-- 表单页
-  - 基础表单页
-  - 分步表单页
-  - 高级表单页
-- 列表页
-  - 查询表格
-  - 标准列表
-  - 卡片列表
-  - 搜索列表（项目/应用/文章）
-- 详情页
-  - 基础详情页
-  - 高级详情页
-- 结果
-  - 成功页
-  - 失败页
-- 异常
-  - 403 无权限
-  - 404 找不到
-  - 500 服务器出错
-- 帐户
-  - 登录
-  - 注册
-  - 注册成功
+- 本地mock数据
+- Echarts 图表
+- Clipboard(剪贴复制)
+- 401/404错误页面
+- 错误日志
+- 导出excel
+- 导出zip
+- 前端可视化excel
+- Table example
+- 动态table example
+- 拖拽table example
+- 内联编辑table example
+- Form example
+- 二步登录
+- SplitPane
+- Dropzone
+- Sticky
+- CountTo
+- Markdown2html
 ```
 
-## 使用
-
+## 开发
 ```bash
-$ git clone https://github.com/ant-design/ant-design-pro.git --depth=1
-$ cd ant-design-pro
-$ npm install
-$ npm start         # 访问 http://localhost:8000
+# 克隆项目
+git clone https://github.com/PanJiaChen/vue-element-admin.git
+
+# 安装依赖
+npm install
+   
+# 建议不要用cnpm安装 会有各种诡异的bug 可以通过如下操作解决 npm 下载速度慢的问题
+npm install --registry=https://registry.npm.taobao.org
+
+# 启动服务
+npm run dev
 ```
+浏览器访问 http://localhost:9527
 
-也可以使用集成化的 [ant-design-pro-cli](https://github.com/ant-design/ant-design-pro-cli) 工具。
-
+## 发布
 ```bash
-$ npm install ant-design-pro-cli -g
-$ mkdir pro-demo && cd pro-demo
-$ pro new
+# 构建测试环境
+npm run build:sit
+
+# 构建生成环境
+npm run build:prod
 ```
 
-更多信息请参考 [使用文档](http://pro.ant.design/docs/getting-started)。
+## 其它
+```bash
+# --report to build with bundle size analytics
+npm run build:prod --report
 
-## 兼容性
+# --preview to start a server in local to preview
+npm run build:prod --preview
 
-现代浏览器及 IE11。
+# lint code
+npm run lint
 
-## 参与贡献
+# auto fix
+npm run lint -- --fix
+```
 
-我们非常欢迎你的贡献，你可以通过以下方式和我们一起共建 :smiley:：
+更多信息请参考 [使用文档](https://panjiachen.github.io/vue-element-admin-site/#/deploy)
 
-- 在你的公司或个人项目中使用 Ant Design Pro。
-- 通过 [Issue](http://github.com/ant-design/ant-design-pro/issues) 报告 bug 或进行咨询。
-- 提交 [Pull Request](http://github.com/ant-design/ant-design-pro/pulls) 改进 Pro 的代码。
+## Changelog
+Detailed changes for each release are documented in the [release notes](https://github.com/PanJiaChen/vue-element-admin/releases).
+
+## Online Demo
+[在线 Demo](http://panjiachen.github.io/vue-element-admin)
+
+## Donate
+如果你觉得这个项目帮助到了你，你可以帮作者买一杯果汁表示鼓励 :tropical_drink:
+![donate](https://panjiachen.github.io/donate/donation.png)
+
+[Paypal Me](https://www.paypal.me/panfree23)
+
+## License
+
+[MIT](https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE)
+
+Copyright (c) 2017-present PanJiaChen
