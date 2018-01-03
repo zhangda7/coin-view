@@ -21,3 +21,10 @@ export function fetchHuobiRtinfo() {
     method: 'get',
   })
 }
+
+export function fetchPriceRtinfo(platform, sourceCoin) {
+  return request({
+    url: 'http://localhost:8081/listingPriceInfo?platform=' + platform + '&sourcecoin=' + sourceCoin,
+    method: 'get',
+  })
+}

@@ -1,8 +1,9 @@
 <template>
   <div>
-    <label>最后更新时间：{{lastUpdateDate}}</label>
-    <el-table :data="list" style="width: 100%;padding-top: 15px;">
-      <el-table-column label="名称" width="195" align="center">
+    <div class="card-panel-text">{{platform}} - {{sourceCoin}}</div><br/>
+    <div class="card-panel-text">最后更新时间：{{lastUpdateDate}}</div>
+    <el-table :data="list" style="width: 100%;padding-top: 15px;font-size:12px;">
+      <el-table-column label="名称" style="width: 20%" align="center">
         <template slot-scope="scope">
           <el-tag v-if="scope.row.type == 'buy'" type="danger">{{scope.row.name}}</el-tag>
           <el-tag v-if="scope.row.type == 'sell'" type="success">{{scope.row.name}}</el-tag>
@@ -11,12 +12,12 @@
           <!-- {{scope.row.name}} -->
         </template>
       </el-table-column>
-      <el-table-column label="Price" width="195" align="center">
-        <template slot-scope="scope">
+      <el-table-column label="Price" style="width: 40%;" align="center">
+        <template slot-scope="scope" >
           ¥{{scope.row.price | toThousandslsFilter}}
         </template>
       </el-table-column>
-      <el-table-column label="amount" show-overflow-tooltip>
+      <el-table-column label="amount" style="width: 40%" align="center">
         <template slot-scope="scope">
           {{scope.row.amount}}
         </template>
@@ -27,10 +28,11 @@
 
 <script>
 import { fetchList } from '@/api/transaction'
-import { fetchRtinfo } from '@/api/transaction'
+import { fetchPriceRtinfo } from '@/api/transaction'
 import { fetchHuobiRtinfo } from '@/api/transaction'
 
 export default {
+  props: ['platform', 'sourceCoin'],
   data() {
     return {
       list: null,
@@ -55,9 +57,9 @@ export default {
   },
   methods: {
     fetchData() {
-      fetchHuobiRtinfo().then(response => {
-        console.log('response:' + response.data.data)
-        var allDepth = JSON.parse(response.data.data)["HUOBI_COIN_COIN_BTC_ETH_"]
+      fetchPriceRtinfo(this.platform, this.sourceCoin).then(response => {
+        // console.log('response:' + response.data.data)
+        var allDepth = JSON.parse(response.data.data)["LISTING_PRICE"]
         console.log('allDepth:' + allDepth)
         this.list = allDepth;
         this.lastUpdateDate = new Date();
@@ -72,3 +74,11 @@ export default {
   }
 }
 </script>
+<style rel="stylesheet/scss" lang="scss" scoped>
+.card-panel-text {
+        // line-height: 18px;
+        color: rgba(0, 0, 0, 0.45);
+        font-size: 12px;
+        margin-bottom: 5px;
+      }
+</style>

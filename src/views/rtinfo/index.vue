@@ -4,11 +4,17 @@
 
 
     <el-row :gutter="8">
-      <el-col :xs="{span: 24}" :sm="{span: 24}" :md="{span: 24}" :lg="{span: 12}" :xl="{span: 12}" style="padding-right:8px;margin-bottom:30px;">
-        <transaction-table></transaction-table>
+      <el-col :xs="{span: 12}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="padding-right:8px;margin-bottom:30px;">
+        <price-info-table platform="BITHUMB" sourceCoin="BTC"></price-info-table>
       </el-col>
-      <el-col :xs="{span: 24}" :sm="{span: 24}" :md="{span: 24}" :lg="{span: 12}" :xl="{span: 12}" style="padding-right:8px;margin-bottom:30px;">
-        <transaction-table></transaction-table>
+      <el-col :xs="{span: 12}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="padding-right:8px;margin-bottom:30px;">
+        <price-info-table platform="BITHUMB" sourceCoin="ETH"></price-info-table>
+      </el-col>
+      <el-col :xs="{span: 12}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="padding-right:8px;margin-bottom:30px;">
+        <price-info-table platform="BITHUMB" sourceCoin="LTC"></price-info-table>
+      </el-col>
+      <el-col :xs="{span: 12}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="padding-right:8px;margin-bottom:30px;">
+        <price-info-table platform="BITHUMB" sourceCoin="BCH"></price-info-table>
       </el-col>
     </el-row>
 
@@ -17,7 +23,7 @@
 
 <script>
 import PanelGroup from '../dashboard/admin/components/PanelGroup'
-import TransactionTable from './TransactionTable'
+import PriceInfoTable from './PriceInfoTable'
 
 const lineChartData = {
   newVisitis: {
@@ -42,7 +48,7 @@ export default {
   name: 'rtinfo',
   components: {
     PanelGroup,
-    TransactionTable,
+    PriceInfoTable,
   },
   data() {
     return {
