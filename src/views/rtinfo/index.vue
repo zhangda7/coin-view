@@ -14,7 +14,21 @@
         <price-info-table platform="BITHUMB" sourceCoin="LTC"></price-info-table>
       </el-col>
       <el-col :xs="{span: 12}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="padding-right:8px;margin-bottom:30px;">
-        <price-info-table platform="BITHUMB" sourceCoin="BCH"></price-info-table>
+        <price-info-table platform="BITHUMB" sourceCoin="QTUM"></price-info-table>
+      </el-col>
+    </el-row>
+    <el-row :gutter="8">
+      <el-col :xs="{span: 12}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="padding-right:8px;margin-bottom:30px;">
+        <price-info-table platform="BINANCE" sourceCoin="BTC"></price-info-table>
+      </el-col>
+      <el-col :xs="{span: 12}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="padding-right:8px;margin-bottom:30px;">
+        <price-info-table platform="BINANCE" sourceCoin="ETH"></price-info-table>
+      </el-col>
+      <el-col :xs="{span: 12}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="padding-right:8px;margin-bottom:30px;">
+        <price-info-table platform="BINANCE" sourceCoin="LTC"></price-info-table>
+      </el-col>
+      <el-col :xs="{span: 12}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="padding-right:8px;margin-bottom:30px;">
+        <price-info-table platform="BINANCE" sourceCoin="QTUM"></price-info-table>
       </el-col>
     </el-row>
 

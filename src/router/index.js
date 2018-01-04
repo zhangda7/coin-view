@@ -48,7 +48,7 @@ export const constantRouterMap = [
       path: 'rtinfo',
       component: _import('rtinfo/index'),
       name: 'rtinfo',
-      meta: { title: 'rtinfo', icon: 'dashboard', noCache: true }
+      meta: { title: '实时信息', icon: 'dashboard', noCache: true }
     }]
   },
   {
