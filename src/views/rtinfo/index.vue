@@ -2,7 +2,14 @@
   <div class="dashboard-editor-container">
     <panel-group @handleSetLineChartData="handleSetLineChartData"></panel-group>
 
-
+    <el-row :gutter="8">
+      <el-col :xs="{span: 12}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="padding-right:8px;margin-bottom:30px;">
+        <account-info-table platform="BITHUMB"></account-info-table>
+      </el-col>
+      <el-col :xs="{span: 12}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="padding-right:8px;margin-bottom:30px;">
+        <account-info-table platform="BINANCE"></account-info-table>
+      </el-col>
+    </el-row>
     <el-row :gutter="8">
       <el-col :xs="{span: 12}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="padding-right:8px;margin-bottom:30px;">
         <price-info-table platform="BITHUMB" sourceCoin="BTC"></price-info-table>
@@ -38,6 +45,7 @@
 <script>
 import PanelGroup from '../dashboard/admin/components/PanelGroup'
 import PriceInfoTable from './PriceInfoTable'
+import AccountInfoTable from './AccountInfo'
 
 const lineChartData = {
   newVisitis: {
@@ -63,6 +71,7 @@ export default {
   components: {
     PanelGroup,
     PriceInfoTable,
+    AccountInfoTable
   },
   data() {
     return {

@@ -52,6 +52,17 @@ export const constantRouterMap = [
     }]
   },
   {
+    path: '',
+    component: Layout,
+    redirect: 'trade',
+    children: [{
+      path: 'trade',
+      component: _import('trade/index'),
+      name: 'trade',
+      meta: { title: '交易历史', icon: 'dashboard', noCache: true }
+    }]
+  },
+  {
     path: '/documentation',
     component: Layout,
     redirect: '/documentation/index',

@@ -24,7 +24,24 @@ export function fetchHuobiRtinfo() {
 
 export function fetchPriceRtinfo(platform, sourceCoin) {
   return request({
+    // url: 'http://http://47.97.127.136:8081/listingPriceInfo?platform=' + platform + '&sourcecoin=' + sourceCoin,
     url: 'http://localhost:8081/listingPriceInfo?platform=' + platform + '&sourcecoin=' + sourceCoin,
+    method: 'get',
+  })
+}
+
+export function fetchAccountInfo(platform) {
+  return request({
+    // url: 'http://http://47.97.127.136:8081/listingPriceInfo?platform=' + platform + '&sourcecoin=' + sourceCoin,
+    url: 'http://localhost:8081/accountInfo?platform=' + platform,
+    method: 'get',
+  })
+}
+
+export function fetchTradeHistory() {
+  return request({
+    // url: 'http://http://47.97.127.136:8081/listingPriceInfo?platform=' + platform + '&sourcecoin=' + sourceCoin,
+    url: 'http://localhost:8081/listingTradeHistory',
     method: 'get',
   })
 }
