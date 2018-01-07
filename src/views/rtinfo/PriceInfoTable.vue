@@ -52,9 +52,8 @@ export default {
       return statusMap[status]
     },
     formatDate(time){
-        let date = new Date(time);
-        return formatDate(date,'yyyy-MM-dd hh:mm:ss');
-        //此处formatDate是一个函数，将其封装在common/js/date.js里面，便于全局使用
+      let date = new Date(time)
+      return formatDate(date,'yyyy-MM-dd hh:mm:ss')
     }
   },
   created() {
@@ -72,7 +71,7 @@ export default {
         this.lastDataDate = retJson["lastDate"]
         console.log('allDepth:' + allDepth)
         this.list = allDepth;
-        this.lastUpdateDate = new Date();
+        this.lastUpdateDate = new Date()
         // var buyDepth = allDepth["buyDepth"]
         // console.log('buyDepth:' + buyDepth)
       })

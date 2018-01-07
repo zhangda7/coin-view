@@ -1,15 +1,35 @@
 <template>
   <div>
-    <div class="card-panel-text">账户：{{platform}}</div><br/>
+    <div class="card-panel-text">币差</div><br/>
     <el-table :data="list" style="width: 100%;padding-top: 15px;font-size:12px;">
-      <el-table-column label="Price" style="width: 40%;" align="center">
+      <el-table-column label="币种" style="width: 40%;" align="center">
         <template slot-scope="scope" >
-          ¥{{scope.row.coinType}}
+          {{scope.row.coinType}}
         </template>
       </el-table-column>
-      <el-table-column label="amount" style="width: 40%" align="center">
+      <el-table-column label="差值" style="width: 40%" align="center">
         <template slot-scope="scope">
-          {{scope.row.freeAmount.toFixed(2)}}
+          {{scope.row.delta.toFixed(2)}}
+        </template>
+      </el-table-column>
+      <el-table-column label="归一化差值" style="width: 40%" align="center">
+        <template slot-scope="scope">
+          ¥{{scope.row.normaliseDelta.toFixed(2)}}
+        </template>
+      </el-table-column>
+      <el-table-column label="最大交易数量" style="width: 40%" align="center">
+        <template slot-scope="scope">
+          {{scope.row.amount.toFixed(2)}}
+        </template>
+      </el-table-column>
+      <el-table-column label="源平台" style="width: 40%" align="center">
+        <template slot-scope="scope">
+          {{scope.row.platform1}}
+        </template>
+      </el-table-column>
+      <el-table-column label="目标平台" style="width: 40%" align="center">
+        <template slot-scope="scope">
+          {{scope.row.platform2}}
         </template>
       </el-table-column>
     </el-table>
@@ -17,7 +37,7 @@
 </template>
 
 <script>
-import { fetchAccountInfo } from '@/api/transaction'
+import { fetchPriceDelta } from '@/api/transaction'
 import { formatDate } from '@/api/transaction'
 
 export default {
@@ -52,9 +72,9 @@ export default {
   },
   methods: {
     fetchData() {
-      fetchAccountInfo(this.platform).then(response => {
+      fetchPriceDelta(this.platform).then(response => {
         var retJson = JSON.parse(response.data.data)
-        var allDepth = retJson["coins"]
+        var allDepth = retJson
         console.log('allDepth:' + allDepth)
         this.list = allDepth;
       })

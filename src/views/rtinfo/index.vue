@@ -11,6 +11,11 @@
       </el-col>
     </el-row>
     <el-row :gutter="8">
+      <el-col :xs="{span: 36}" :sm="{span: 36}" :md="{span: 36}" :lg="{span: 18}" :xl="{span: 18}" style="padding-right:8px;margin-bottom:30px;">
+        <price-delta-table platform="BITHUMB"></price-delta-table>
+      </el-col>
+    </el-row>
+    <el-row :gutter="8">
       <el-col :xs="{span: 12}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="padding-right:8px;margin-bottom:30px;">
         <price-info-table platform="BITHUMB" sourceCoin="BTC"></price-info-table>
       </el-col>
@@ -46,6 +51,7 @@
 import PanelGroup from '../dashboard/admin/components/PanelGroup'
 import PriceInfoTable from './PriceInfoTable'
 import AccountInfoTable from './AccountInfo'
+import PriceDeltaTable from './PriceDelta'
 
 const lineChartData = {
   newVisitis: {
@@ -71,7 +77,8 @@ export default {
   components: {
     PanelGroup,
     PriceInfoTable,
-    AccountInfoTable
+    AccountInfoTable,
+    PriceDeltaTable
   },
   data() {
     return {

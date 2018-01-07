@@ -27,6 +27,11 @@
           <span>{{scope.row.coinType}}</span>
         </template>
       </el-table-column>
+      <el-table-column min-width="70px" :label="$t('交易动作')">
+        <template slot-scope="scope">
+          <span>{{scope.row.tradeAction}}</span>
+        </template>
+      </el-table-column>
       <el-table-column width="90px" align="center" :label="$t('交易状态')">
         <template slot-scope="scope">
           <span>{{scope.row.result}}</span>
@@ -35,6 +40,11 @@
       <el-table-column width="110px" align="center" :label="$t('价格')">
         <template slot-scope="scope">
           <span>{{scope.row.price}}</span>
+        </template>
+      </el-table-column>
+      <el-table-column width="110px" align="center" :label="$t('归一化价格')">
+        <template slot-scope="scope">
+          <span>{{scope.row.normalizePrice.toFixed(2)}}</span>
         </template>
       </el-table-column>
       <el-table-column width="110px" align="center" :label="$t('数量')">
@@ -196,9 +206,8 @@ export default {
         // console.log('response:' + response.data.data)
         // var retJson = JSON.parse(response.data.data)
         // this.list = allDepth;
-        console.log("==>" + response)
         this.list = JSON.parse(response.data.data)
-        console.log("==>" + this.list)
+        console.log('==>' + this.list)
         this.total = response.data.count
         this.listLoading = false
       })

@@ -8,20 +8,6 @@ export function fetchList(query) {
   })
 }
 
-export function fetchRtinfo() {
-  return request({
-    url: 'http://localhost:8081/listingOkexInfo',
-    method: 'get',
-  })
-}
-
-export function fetchHuobiRtinfo() {
-  return request({
-    url: 'http://localhost:8081/listingHuobiInfo',
-    method: 'get',
-  })
-}
-
 export function fetchPriceRtinfo(platform, sourceCoin) {
   return request({
     // url: 'http://http://47.97.127.136:8081/listingPriceInfo?platform=' + platform + '&sourcecoin=' + sourceCoin,
@@ -32,15 +18,20 @@ export function fetchPriceRtinfo(platform, sourceCoin) {
 
 export function fetchAccountInfo(platform) {
   return request({
-    // url: 'http://http://47.97.127.136:8081/listingPriceInfo?platform=' + platform + '&sourcecoin=' + sourceCoin,
     url: 'http://localhost:8081/accountInfo?platform=' + platform,
+    method: 'get',
+  })
+}
+
+export function fetchPriceDelta() {
+  return request({
+    url: 'http://localhost:8081/listingPriceDelta',
     method: 'get',
   })
 }
 
 export function fetchTradeHistory() {
   return request({
-    // url: 'http://http://47.97.127.136:8081/listingPriceInfo?platform=' + platform + '&sourcecoin=' + sourceCoin,
     url: 'http://localhost:8081/listingTradeHistory',
     method: 'get',
   })
@@ -59,13 +50,13 @@ export function formatDate(date, fmt) {
   };
   for (let k in o) {
       if (new RegExp(`(${k})`).test(fmt)) {
-          let str = o[k] + '';
-          fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? str : padLeftZero(str));
+          let str = o[k] + ''
+          fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? str : padLeftZero(str))
       }
   }
-  return fmt;
+  return fmt
 };
 
 function padLeftZero(str) {
-  return ('00' + str).substr(str.length);
+  return ('00' + str).substr(str.length)
 }
