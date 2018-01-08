@@ -1,7 +1,7 @@
 <template>
   <div class="app-container calendar-list-container">
     <div class="filter-container">
-      <el-input @keyup.enter.native="handleFilter" style="width: 200px;" class="filter-item" :placeholder="$t('table.title')" v-model="listQuery.title">
+      <el-input @keyup.enter.native="handleFilter" style="width: 200px;" class="filter-item" :placeholder="$t('table.tradePlatform')" v-model="listQuery.tradePlatform">
       </el-input>
       <el-select @change='handleFilter' style="width: 140px" class="filter-item" v-model="listQuery.sort">
         <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key">
@@ -202,7 +202,7 @@ export default {
       //   this.total = response.data.total
       //   this.listLoading = false
       // })
-      fetchTradeHistory().then(response => {
+      fetchTradeHistory(this.listQuery.tradePlatform).then(response => {
         // console.log('response:' + response.data.data)
         // var retJson = JSON.parse(response.data.data)
         // this.list = allDepth;

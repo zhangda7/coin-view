@@ -30,9 +30,16 @@ export function fetchPriceDelta() {
   })
 }
 
-export function fetchTradeHistory() {
+export function fetchNormalizeProfit(plaform) {
   return request({
-    url: 'http://localhost:8081/listingTradeHistory',
+    url: 'http://localhost:8081/listingNormalizeProfit',
+    method: 'get',
+  })
+}
+
+export function fetchTradeHistory(plaform) {
+  return request({
+    url: 'http://localhost:8081/listingTradeHistory?platform=' + plaform,
     method: 'get',
   })
 }
