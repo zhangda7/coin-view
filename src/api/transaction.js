@@ -1,5 +1,7 @@
 import request from '@/utils/request'
 
+var host = 'localhost'
+
 export function fetchList(query) {
   return request({
     url: '/transaction/list',
@@ -11,36 +13,36 @@ export function fetchList(query) {
 export function fetchPriceRtinfo(platform, sourceCoin) {
   return request({
     // url: 'http://http://47.97.127.136:8081/listingPriceInfo?platform=' + platform + '&sourcecoin=' + sourceCoin,
-    url: 'http://localhost:8081/listingPriceInfo?platform=' + platform + '&sourcecoin=' + sourceCoin,
-    method: 'get',
+    url: 'http://' + host + ':8081/listingPriceInfo?platform=' + platform + '&sourcecoin=' + sourceCoin,
+    method: 'get'
   })
 }
 
 export function fetchAccountInfo(platform) {
   return request({
-    url: 'http://localhost:8081/accountInfo?platform=' + platform,
-    method: 'get',
+    url: 'http://' + host + ':8081/accountInfo?platform=' + platform,
+    method: 'get'
   })
 }
 
 export function fetchPriceDelta() {
   return request({
-    url: 'http://localhost:8081/listingPriceDelta',
-    method: 'get',
+    url: 'http://' + host + ':8081/listingPriceDelta',
+    method: 'get'
   })
 }
 
 export function fetchNormalizeProfit(plaform) {
   return request({
-    url: 'http://localhost:8081/listingNormalizeProfit',
-    method: 'get',
+    url: 'http://' + host + ':8081/listingNormalizeProfit',
+    method: 'get'
   })
 }
 
 export function fetchTradeHistory(plaform) {
   return request({
-    url: 'http://localhost:8081/listingTradeHistory?platform=' + plaform,
-    method: 'get',
+    url: 'http://' + host + ':8081/listingTradeHistory?platform=' + plaform,
+    method: 'get'
   })
 }
 
@@ -54,7 +56,7 @@ export function formatDate(date, fmt) {
       'h+': date.getHours(),
       'm+': date.getMinutes(),
       's+': date.getSeconds()
-  };
+  }
   for (let k in o) {
       if (new RegExp(`(${k})`).test(fmt)) {
           let str = o[k] + ''
@@ -62,7 +64,7 @@ export function formatDate(date, fmt) {
       }
   }
   return fmt
-};
+}
 
 function padLeftZero(str) {
   return ('00' + str).substr(str.length)
