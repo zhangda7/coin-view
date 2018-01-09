@@ -17,6 +17,11 @@
           <span>{{scope.row.id}}</span>
         </template>
       </el-table-column>
+      <el-table-column width="110px" align="center" :label="$t('交易对ID')">
+        <template slot-scope="scope">
+          <span>{{scope.row.pairId}}</span>
+        </template>
+      </el-table-column>
       <el-table-column width="110px" align="center" :label="$t('交易平台')">
         <template slot-scope="scope">
           <span>{{scope.row.tradePlatform}}</span>
@@ -32,14 +37,24 @@
           <span>{{scope.row.tradeAction}}</span>
         </template>
       </el-table-column>
+      <el-table-column min-width="70px" :label="$t('交易方向')">
+        <template slot-scope="scope">
+          <span>{{scope.row.direction}}</span>
+        </template>
+      </el-table-column>
       <el-table-column width="90px" align="center" :label="$t('交易状态')">
         <template slot-scope="scope">
           <span>{{scope.row.result}}</span>
         </template>
       </el-table-column>
+      <el-table-column width="90px" align="center" :label="$t('盈利')">
+        <template slot-scope="scope">
+          <span>{{scope.row.profit.toFixed(3)}}</span>
+        </template>
+      </el-table-column>
       <el-table-column width="110px" align="center" :label="$t('价格')">
         <template slot-scope="scope">
-          <span>{{scope.row.price}}</span>
+          <span>{{scope.row.price.toFixed(3)}}</span>
         </template>
       </el-table-column>
       <el-table-column width="110px" align="center" :label="$t('归一化价格')">
@@ -49,7 +64,7 @@
       </el-table-column>
       <el-table-column width="110px" align="center" :label="$t('数量')">
         <template slot-scope="scope">
-          <span>{{scope.row.amount}}</span>
+          <span>{{scope.row.amount.toFixed(6)}}</span>
         </template>
       </el-table-column>
       <el-table-column width="110px" align="center" :label="$t('变化')">
