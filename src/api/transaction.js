@@ -32,9 +32,9 @@ export function fetchPriceDelta() {
   })
 }
 
-export function fetchNormalizeProfit(plaform) {
+export function fetchMonitorStatus(plaform) {
   return request({
-    url: 'http://' + host + ':8081/listingNormalizeProfit',
+    url: 'http://' + host + ':8081/monitorStatus',
     method: 'get'
   })
 }

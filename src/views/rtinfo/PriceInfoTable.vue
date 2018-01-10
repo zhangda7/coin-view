@@ -71,7 +71,7 @@ export default {
         this.lastDataDate = retJson["lastDate"]
         console.log('allDepth:' + allDepth)
         this.list = allDepth;
-        this.lastUpdateDate = new Date()
+        this.lastUpdateDate = retJson["lastRequestDate"]
         // var buyDepth = allDepth["buyDepth"]
         // console.log('buyDepth:' + buyDepth)
       })

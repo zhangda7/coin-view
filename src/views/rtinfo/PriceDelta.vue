@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="card-panel-text">归一化盈利 {{nomalizeProfit}}</div><br/>
-    <div class="card-panel-text">币差</div><br/>
+    <div class="card-panel-text">归一化盈利总额 {{nomalizeTotalProfit}}</div><br/>
+    <div class="card-panel-text">币差列表</div><br/>
     <el-table :data="list" style="width: 100%;padding-top: 15px;font-size:12px;">
       <el-table-column label="币种" style="width: 40%;" align="center">
         <template slot-scope="scope" >
@@ -38,7 +39,7 @@
 </template>
 
 <script>
-import { fetchPriceDelta, fetchNormalizeProfit } from '@/api/transaction'
+import { fetchPriceDelta, fetchMonitorStatus } from '@/api/transaction'
 import { formatDate } from '@/api/transaction'
 
 export default {
@@ -47,6 +48,7 @@ export default {
     return {
       list: null,
       nomalizeProfit:null,
+      nomalizeTotalProfit:null,
       lastUpdateDate:new Date(),
       lastDataDate:new Date()
     }
@@ -80,8 +82,10 @@ export default {
         console.log('allDepth:' + allDepth)
         this.list = allDepth;
       })
-      fetchNormalizeProfit().then(response => {
-        this.nomalizeProfit = response.data.data
+      fetchMonitorStatus().then(response => {
+        var retJson = JSON.parse(response.data.data)
+        this.nomalizeProfit = retJson["normalizeProfit"]
+        this.nomalizeTotalProfit = retJson["totalNomalizeProfit"]
       })
     }
   }
