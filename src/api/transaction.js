@@ -39,10 +39,11 @@ export function fetchMonitorStatus(plaform) {
   })
 }
 
-export function fetchTradeHistory(plaform) {
+export function fetchTradeHistory(query) {
   return request({
-    url: 'http://' + host + ':8081/listingTradeHistory?platform=' + plaform,
-    method: 'get'
+    url: 'http://' + host + ':8081/listingTradeHistory',
+    method: 'get',
+    params: query
   })
 }
 

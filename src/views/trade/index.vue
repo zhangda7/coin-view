@@ -1,12 +1,10 @@
 <template>
   <div class="app-container calendar-list-container">
     <div class="filter-container">
-      <el-input @keyup.enter.native="handleFilter" style="width: 200px;" class="filter-item" :placeholder="$t('table.tradePlatform')" v-model="listQuery.tradePlatform">
+      <el-input @keyup.enter.native="handleFilter" style="width: 200px;" class="filter-item" :placeholder="$t('交易平台')" v-model="listQuery.tradePlatform">
       </el-input>
-      <el-select @change='handleFilter' style="width: 140px" class="filter-item" v-model="listQuery.sort">
-        <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key">
-        </el-option>
-      </el-select>
+      <el-input @keyup.enter.native="handleFilter" style="width: 200px;" class="filter-item" :placeholder="$t('交易方向')" v-model="listQuery.direction">
+      </el-input>
       <el-button class="filter-item" type="primary" v-waves icon="el-icon-search" @click="handleFilter">{{$t('table.search')}}</el-button>
     </div>
 
@@ -14,12 +12,12 @@
       style="width: 100%">
       <el-table-column align="center" :label="$t('table.id')" width="65">
         <template slot-scope="scope">
-          <span>{{scope.row.id}}</span>
+          {{scope.row.id}}
         </template>
       </el-table-column>
       <el-table-column width="110px" align="center" :label="$t('交易对ID')">
         <template slot-scope="scope">
-          <span>{{scope.row.pairId}}</span>
+          {{scope.row.pairId}}
         </template>
       </el-table-column>
       <el-table-column width="110px" align="center" :label="$t('交易平台')">
@@ -67,9 +65,9 @@
           <span>{{scope.row.amount.toFixed(6)}}</span>
         </template>
       </el-table-column>
-      <el-table-column width="110px" align="center" :label="$t('变化')">
+      <el-table-column width="110px" align="center" :label="$t('平台1币数量变化')">
         <template slot-scope="scope">
-          <span>{{scope.row.preAccountSourceAmount}} -> {{scope.row.afterAccountSourceAmount}}</span>
+          <span>{{scope.row.preAccountSourceAmount.toFixed(4)}} -> {{scope.row.afterAccountSourceAmount.toFixed(4)}}</span>
         </template>
       </el-table-column>
       <el-table-column width="110px" align="center" :label="$t('对标币种')">
@@ -77,9 +75,9 @@
           <span>{{scope.row.targetCoinType}}</span>
         </template>
       </el-table-column>
-      <el-table-column width="110px" align="center" :label="$t('变化')">
+      <el-table-column width="110px" align="center" :label="$t('平台2现金变化')">
         <template slot-scope="scope">
-          <span>{{scope.row.preAccountTargetAmount}} -> {{scope.row.afterAccountTargetAmount}}</span>
+          <span>{{scope.row.preAccountTargetAmount.toFixed(2)}} -> {{scope.row.afterAccountTargetAmount.toFixed(2)}}</span>
         </template>
       </el-table-column>
       <el-table-column width="110px" align="center" :label="$t('交易时间')">
@@ -87,33 +85,6 @@
           <span>{{scope.row.gmtCreated}}</span>
         </template>
       </el-table-column>
-     
-      <!-- <el-table-column width="110px" v-if='showReviewer' align="center" :label="$t('table.reviewer')">
-        <template slot-scope="scope">
-          <span style='color:red;'>{{scope.row.tradePlatform}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column width="80px" :label="$t('table.importance')">
-        <template slot-scope="scope">
-          <svg-icon v-for="n in +scope.row.tradePlatform" icon-class="star" class="meta-item__icon" :key="n"></svg-icon>
-        </template>
-      </el-table-column>
-      <el-table-column align="center" :label="$t('table.readings')" width="95">
-        <template slot-scope="scope">
-          <span v-if="scope.row.pageviews" class="link-type" @click='handleFetchPv(scope.row.pageviews)'>{{scope.row.pageviews}}</span>
-          <span v-else>0</span>
-        </template>
-      </el-table-column>
-      <el-table-column class-name="status-col" :label="$t('table.status')" width="100">
-        <template slot-scope="scope">
-          <el-tag :type="scope.row.status | statusFilter">{{scope.row.status}}</el-tag>
-        </template>
-      </el-table-column>
-      <el-table-column align="center" :label="$t('table.actions')" width="230" class-name="small-padding fixed-width">
-        <template slot-scope="scope">
-          <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">{{$t('table.edit')}}</el-button>
-        </template>
-      </el-table-column> -->
     </el-table>
 
     <div class="pagination-container">
@@ -217,7 +188,7 @@ export default {
       //   this.total = response.data.total
       //   this.listLoading = false
       // })
-      fetchTradeHistory(this.listQuery.tradePlatform).then(response => {
+      fetchTradeHistory(this.listQuery).then(response => {
         // console.log('response:' + response.data.data)
         // var retJson = JSON.parse(response.data.data)
         // this.list = allDepth;

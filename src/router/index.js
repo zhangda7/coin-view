@@ -41,7 +41,7 @@ export const constantRouterMap = [
     }]
   },
   {
-    path: '',
+    path: '/rtinfo',
     component: Layout,
     redirect: 'rtinfo',
     children: [{
