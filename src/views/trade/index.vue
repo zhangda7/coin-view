@@ -65,7 +65,7 @@
           <span>{{scope.row.amount.toFixed(6)}}</span>
         </template>
       </el-table-column>
-      <el-table-column width="110px" align="center" :label="$t('平台1币数量变化')">
+      <el-table-column width="110px" align="center" :label="$t('币数量变化')">
         <template slot-scope="scope">
           <span>{{scope.row.preAccountSourceAmount.toFixed(4)}} -> {{scope.row.afterAccountSourceAmount.toFixed(4)}}</span>
         </template>
@@ -75,7 +75,7 @@
           <span>{{scope.row.targetCoinType}}</span>
         </template>
       </el-table-column>
-      <el-table-column width="110px" align="center" :label="$t('平台2现金变化')">
+      <el-table-column width="110px" align="center" :label="$t('现金变化')">
         <template slot-scope="scope">
           <span>{{scope.row.preAccountTargetAmount.toFixed(2)}} -> {{scope.row.afterAccountTargetAmount.toFixed(2)}}</span>
         </template>
