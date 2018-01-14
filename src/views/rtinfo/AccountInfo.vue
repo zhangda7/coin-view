@@ -4,12 +4,12 @@
     <el-table :data="list" style="width: 100%;padding-top: 15px;font-size:12px;">
       <el-table-column label="Price" style="width: 40%;" align="center">
         <template slot-scope="scope" >
-          ¥{{scope.row.coinType}}
+          {{scope.row.coinType}}
         </template>
       </el-table-column>
       <el-table-column label="amount" style="width: 40%" align="center">
         <template slot-scope="scope">
-          {{scope.row.freeAmount.toFixed(2)}}
+          {{scope.row.freeAmount.toFixed(5)}}
         </template>
       </el-table-column>
     </el-table>
