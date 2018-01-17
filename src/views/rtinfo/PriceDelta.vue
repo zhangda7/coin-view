@@ -1,8 +1,37 @@
 <template>
   <div>
-    <div class="card-panel-text">归一化盈利 {{nomalizeProfit}}</div><br/>
     <div class="card-panel-text">归一化盈利总额 {{nomalizeTotalProfit}}</div><br/>
-    <div class="card-panel-text">币差列表</div><br/>
+    <div class="card-panel-text">归一化盈利</div><br/>
+    <el-table :data="historyList" style="width: 100%;padding-top: 15px;font-size:12px;">
+      <el-table-column label="币种" style="width: 40%;height:10px" align="center">
+        <template slot-scope="scope" >
+          {{scope.row.coinType}}
+        </template>
+      </el-table-column>
+      <el-table-column label="总盈利" style="width: 40%" align="center">
+        <template slot-scope="scope">
+          {{scope.row.totalProfit.toFixed(2)}}
+        </template>
+      </el-table-column>
+      <el-table-column label="总交易数量" style="width: 40%" align="center">
+        <template slot-scope="scope">
+          {{scope.row.totalAmount.toFixed(2)}}
+        </template>
+      </el-table-column>
+      <el-table-column label="平均交易盈利" style="width: 40%" align="center">
+        <template slot-scope="scope">
+          {{scope.row.averageProfit.toFixed(2)}}
+        </template>
+      </el-table-column>
+      <el-table-column label="最后更新时间" style="width: 40%" align="center">
+        <template slot-scope="scope">
+          {{scope.row.updateDate}}
+        </template>
+      </el-table-column>
+    </el-table>
+    <br/>
+    <div class="card-panel-text">币差列表</div>
+    <br/>
     <el-table :data="list" style="width: 100%;padding-top: 15px;font-size:12px;">
       <el-table-column label="币种" style="width: 40%;" align="center">
         <template slot-scope="scope" >
@@ -47,6 +76,7 @@ export default {
   data() {
     return {
       list: null,
+      historyList: null,
       nomalizeProfit:null,
       nomalizeTotalProfit:null,
       lastUpdateDate:new Date(),
@@ -84,8 +114,8 @@ export default {
       })
       fetchMonitorStatus().then(response => {
         var retJson = JSON.parse(response.data.data)
-        this.nomalizeProfit = retJson["normalizeProfit"]
         this.nomalizeTotalProfit = retJson["totalNomalizeProfit"]
+        this.historyList = retJson["profitHistoryList"]
       })
     }
   }
