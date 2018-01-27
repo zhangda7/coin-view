@@ -55,12 +55,12 @@
       </el-table-column>
       <el-table-column label="源平台" style="width: 40%" align="center">
         <template slot-scope="scope">
-          {{scope.row.platform1}}
+          {{scope.row.platform1}} - {{scope.row.targetCoinType1}}
         </template>
       </el-table-column>
       <el-table-column label="目标平台" style="width: 40%" align="center">
         <template slot-scope="scope">
-          {{scope.row.platform2}}
+          {{scope.row.platform2}} - {{scope.row.targetCoinType2}}
         </template>
       </el-table-column>
     </el-table>
