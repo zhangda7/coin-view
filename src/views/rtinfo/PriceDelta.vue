@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width: 100%">
     <div class="card-panel-text">归一化盈利总额 {{nomalizeTotalProfit}}</div><br/>
     <div class="card-panel-text">归一化盈利</div><br/>
     <el-table :data="historyList" style="width: 100%;padding-top: 15px;font-size:12px;">
@@ -32,35 +32,35 @@
     <br/>
     <div class="card-panel-text">币差列表</div>
     <br/>
-    <el-table :data="list" style="width: 100%;padding-top: 15px;font-size:12px;">
-      <el-table-column label="币种" style="width: 40%;" align="center">
+    <el-table :data="list" style="width:100%;padding-top: 15px;font-size:12px;">
+      <el-table-column label="币种"  align="center">
         <template slot-scope="scope" >
           {{scope.row.coinType}}
         </template>
       </el-table-column>
-      <el-table-column label="差值" style="width: 40%" align="center">
+      <el-table-column label="差值"  align="center">
         <template slot-scope="scope">
           {{scope.row.delta.toFixed(2)}}
         </template>
       </el-table-column>
-      <el-table-column label="归一化差值" style="width: 40%" align="center">
+      <el-table-column label="归一化差值" style="width:10%" align="center">
         <template slot-scope="scope">
-          ¥{{scope.row.normaliseDelta.toFixed(2)}}
+          ${{scope.row.normaliseDelta.toFixed(2)}}
         </template>
       </el-table-column>
-      <el-table-column label="最大交易数量" style="width: 40%" align="center">
+      <el-table-column label="最大交易数量" style="width: 10%" align="center">
         <template slot-scope="scope">
           {{scope.row.amount.toFixed(2)}}
         </template>
       </el-table-column>
-      <el-table-column label="源平台" style="width: 40%" align="center">
+      <el-table-column label="高价平台" style="width:30%" align="center">
         <template slot-scope="scope">
-          {{scope.row.platform1}} - {{scope.row.targetCoinType1}}
+          {{scope.row.platform1}} - {{scope.row.targetCoinType1}} - {{scope.row.normalisePrice1}}
         </template>
       </el-table-column>
-      <el-table-column label="目标平台" style="width: 40%" align="center">
+      <el-table-column label="低价平台" style="width:30%" align="center">
         <template slot-scope="scope">
-          {{scope.row.platform2}} - {{scope.row.targetCoinType2}}
+          {{scope.row.platform2}} - {{scope.row.targetCoinType2}} - {{scope.row.normalisePrice2}}
         </template>
       </el-table-column>
     </el-table>

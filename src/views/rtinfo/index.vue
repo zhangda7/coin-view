@@ -11,7 +11,7 @@
       </el-col>
     </el-row>
     <el-row :gutter="8">
-      <el-col :xs="{span: 36}" :sm="{span: 36}" :md="{span: 36}" :lg="{span: 18}" :xl="{span: 18}" style="padding-right:8px;margin-bottom:30px;">
+      <el-col :xs="{span: 48}" :sm="{span: 48}" :md="{span: 48}" :lg="{span: 24}" :xl="{span: 24}" style="padding-right:8px;margin-bottom:30px;">
         <price-delta-table platform="BITHUMB"></price-delta-table>
       </el-col>
     </el-row>
