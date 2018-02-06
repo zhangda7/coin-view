@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-editor-container">
-    <panel-group @handleSetLineChartData="handleSetLineChartData"></panel-group>
-
+    <!-- <panel-group @handleSetLineChartData="handleSetLineChartData"></panel-group> -->
+    <h4>实时信息</h4>
     <el-row :gutter="8">
       <el-col :xs="{span: 12}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="padding-right:8px;margin-bottom:30px;">
         <account-info-table platform="BITHUMB"></account-info-table>

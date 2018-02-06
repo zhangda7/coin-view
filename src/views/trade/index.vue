@@ -57,6 +57,11 @@
           <span>{{scope.row.amount.toFixed(6)}}</span>
         </template>
       </el-table-column>
+      <el-table-column width="110px" align="center" :label="$t('手续费')">
+        <template slot-scope="scope">
+          <span>{{scope.row.normalizeFee.toFixed(6)}}</span>
+        </template>
+      </el-table-column>
       <el-table-column width="110px" align="center" :label="$t('币数量变化')">
         <template slot-scope="scope">
           <span>{{scope.row.preAccountSourceAmount.toFixed(4)}} -> {{scope.row.afterAccountSourceAmount.toFixed(4)}}</span>

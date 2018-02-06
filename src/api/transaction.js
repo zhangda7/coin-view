@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-var host = 'localhost'
+var host = process.env.BASE_HOST
 
 export function fetchList(query) {
   return request({

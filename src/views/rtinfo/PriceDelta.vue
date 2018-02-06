@@ -1,6 +1,7 @@
 <template>
   <div style="width: 100%">
     <div class="card-panel-text">归一化盈利总额 {{nomalizeTotalProfit}}</div><br/>
+    <div class="card-panel-text">归一化手续费总额 {{nomalizeTotalFee}}</div><br/>
     <div class="card-panel-text">归一化盈利</div><br/>
     <el-table :data="historyList" style="width: 100%;padding-top: 15px;font-size:12px;">
       <el-table-column label="币种" style="width: 40%;height:10px" align="center">
@@ -55,12 +56,12 @@
       </el-table-column>
       <el-table-column label="高价平台" style="width:30%" align="center">
         <template slot-scope="scope">
-          {{scope.row.platform1}} - {{scope.row.targetCoinType1}} - {{scope.row.normalisePrice1}}
+          {{scope.row.platform1}} - {{scope.row.targetCoinType1}} - {{scope.row.normalisePrice1.toFixed(2)}}
         </template>
       </el-table-column>
       <el-table-column label="低价平台" style="width:30%" align="center">
         <template slot-scope="scope">
-          {{scope.row.platform2}} - {{scope.row.targetCoinType2}} - {{scope.row.normalisePrice2}}
+          {{scope.row.platform2}} - {{scope.row.targetCoinType2}} - {{scope.row.normalisePrice2.toFixed(2)}}
         </template>
       </el-table-column>
     </el-table>
@@ -78,6 +79,7 @@ export default {
       list: null,
       historyList: null,
       nomalizeProfit:null,
+      nomalizeTotalFee:null,
       nomalizeTotalProfit:null,
       lastUpdateDate:new Date(),
       lastDataDate:new Date()
@@ -115,6 +117,7 @@ export default {
       fetchMonitorStatus().then(response => {
         var retJson = JSON.parse(response.data.data)
         this.nomalizeTotalProfit = retJson["totalNomalizeProfit"]
+        this.nomalizeTotalFee = retJson["totalNomalizeFee"]
         this.historyList = retJson["profitHistoryList"]
       })
     }

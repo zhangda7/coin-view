@@ -15,7 +15,7 @@
       </el-table-column>
       <el-table-column label="Price" style="width: 40%;" align="center">
         <template slot-scope="scope" >
-          ¥{{scope.row.price.toFixed(2) | toThousandslsFilter}}
+          ${{scope.row.price.toFixed(2) | toThousandslsFilter}}
         </template>
       </el-table-column>
       <el-table-column label="amount" style="width: 40%" align="center">
