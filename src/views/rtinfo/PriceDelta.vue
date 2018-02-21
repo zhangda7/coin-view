@@ -24,6 +24,11 @@
           {{scope.row.averageProfit.toFixed(2)}}
         </template>
       </el-table-column>
+      <el-table-column label="总手续费" style="width: 40%" align="center">
+        <template slot-scope="scope">
+          {{scope.row.totalFee.toFixed(2)}}
+        </template>
+      </el-table-column>
       <el-table-column label="最后更新时间" style="width: 40%" align="center">
         <template slot-scope="scope">
           {{scope.row.updateDate}}
@@ -46,7 +51,7 @@
       </el-table-column>
       <el-table-column label="归一化差值" style="width:10%" align="center">
         <template slot-scope="scope">
-          ${{scope.row.normaliseDelta.toFixed(2)}}
+          ${{scope.row.normaliseTo10KDelta.toFixed(2)}}
         </template>
       </el-table-column>
       <el-table-column label="最大交易数量" style="width: 10%" align="center">

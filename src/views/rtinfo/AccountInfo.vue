@@ -9,7 +9,7 @@
       </el-table-column>
       <el-table-column label="amount" style="width: 40%" align="center">
         <template slot-scope="scope">
-          {{scope.row.freeAmount.toFixed(5)}}
+          {{scope.row.freeAmount.toFixed(7)}}
         </template>
       </el-table-column>
     </el-table>

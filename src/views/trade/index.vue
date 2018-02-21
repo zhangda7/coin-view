@@ -5,7 +5,17 @@
       </el-input>
       <el-input @keyup.enter.native="handleFilter" style="width: 200px;" class="filter-item" :placeholder="$t('交易方向')" v-model="listQuery.direction">
       </el-input>
+      <el-input @keyup.enter.native="handleFilter" style="width: 200px;" class="filter-item" :placeholder="$t('开始时间')" v-model="listQuery.startTime">
+      </el-input>
+      <el-input @keyup.enter.native="handleFilter" style="width: 200px;" class="filter-item" :placeholder="$t('结束时间')" v-model="listQuery.endTime">
+      </el-input>
       <el-button class="filter-item" type="primary" v-waves icon="el-icon-search" @click="handleFilter">{{$t('table.search')}}</el-button>
+    </div>
+
+    <div class="filter-container">
+      <label>总盈利: ${{stat.totalProfit}} &nbsp;&nbsp;&nbsp;</label>
+      <label>总手续费: ${{stat.totalFee}} &nbsp;&nbsp;&nbsp;</label>
+      <label>交易次数: ${{stat.totalCount}}</label>
     </div>
 
     <el-table :key='tableKey' :data="list" v-loading="listLoading" element-loading-text="给我一点时间" border fit highlight-current-row
@@ -37,7 +47,7 @@
             <span>结果：{{scope.row.result}}</span><br/>
         </template>
       </el-table-column>
-      <el-table-column width="90px" align="center" :label="$t('归一化盈利(CNY)')">
+      <el-table-column width="90px" align="center" :label="$t('归一化盈利(USD)')">
         <template slot-scope="scope">
           <span>{{scope.row.profit.toFixed(3)}}</span>
         </template>
@@ -108,6 +118,25 @@ const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {
   return acc
 }, {})
 
+Date.prototype.Format = function(fmt)   
+{ //author: meizz   
+  var o = {   
+    "M+" : this.getMonth()+1,                 //月份   
+    "d+" : this.getDate(),                    //日   
+    "h+" : this.getHours(),                   //小时   
+    "m+" : this.getMinutes(),                 //分   
+    "s+" : this.getSeconds(),                 //秒   
+    "q+" : Math.floor((this.getMonth()+3)/3), //季度   
+    "S"  : this.getMilliseconds()             //毫秒   
+  };   
+  if(/(y+)/.test(fmt))   
+    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));   
+  for(var k in o)   
+    if(new RegExp("("+ k +")").test(fmt))   
+  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));   
+  return fmt;   
+}  
+
 export default {
   name: 'trade',
   directives: {
@@ -118,6 +147,7 @@ export default {
       tableKey: 0,
       list: null,
       total: null,
+      stat:null,
       listLoading: true,
       listQuery: {
         page: 1,
@@ -125,7 +155,9 @@ export default {
         importance: undefined,
         title: undefined,
         type: undefined,
-        sort: '+id'
+        sort: '+id',
+        startTime:new Date(new Date().getTime() - 1 * 24 * 3600 * 1000).Format("yyyy-MM-dd hh:mm:ss"),
+        endTime:new Date().Format("yyyy-MM-dd hh:mm:ss")
       },
       importanceOptions: [1, 2, 3],
       calendarTypeOptions,
@@ -185,7 +217,9 @@ export default {
         // console.log('response:' + response.data.data)
         // var retJson = JSON.parse(response.data.data)
         // this.list = allDepth;
-        this.list = JSON.parse(response.data.data)
+        // this.list = JSON.parse(response.data.data)
+        this.list = JSON.parse(JSON.parse(response.data.data).tableData)
+        this.stat = JSON.parse(response.data.data).stat
         console.log('==>' + this.list)
         this.total = response.data.count
         this.listLoading = false
