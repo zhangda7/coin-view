@@ -59,7 +59,18 @@ export const constantRouterMap = [
       path: 'trade',
       component: _import('trade/index'),
       name: 'trade',
-      meta: { title: '交易历史', icon: 'dashboard', noCache: true }
+      meta: { title: '交易历史', icon: 'table', noCache: true }
+    }]
+  },
+  {
+    path: '',
+    component: Layout,
+    redirect: 'depthhistory',
+    children: [{
+      path: 'depthhistory',
+      component: _import('depthhistory/index'),
+      name: 'depthhistory',
+      meta: { title: '历史价格', icon: 'chart', noCache: true }
     }]
   },
   {
