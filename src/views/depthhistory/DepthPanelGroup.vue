@@ -4,6 +4,10 @@
       <el-select @change='handleSetLineChartData' style="width: 140px" class="filter-item" v-model="sourceCoin">
         <el-option label="BTC" value="BTC"></el-option>
         <el-option label="ETH" value="ETH"></el-option>
+        <el-option label="LTC" value="LTC"></el-option>
+        <el-option label="EOS" value="EOS"></el-option>
+        <el-option label="BTG" value="BTG"></el-option>
+        <el-option label="QTUM" value="QTUM"></el-option>
       </el-select>
     </el-col>
   </el-row>
@@ -23,7 +27,7 @@ export default {
   },
   methods: {
     handleSetLineChartData() {
-      this.$emit('handleSetLineChartData', this.sourceCoin)
+      // this.$emit('handleSetLineChartData', this.sourceCoin)
     }
   }
 }
